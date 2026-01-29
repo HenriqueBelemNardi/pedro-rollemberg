@@ -3,19 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultoria Online | Pedro Rollemberg</title>
 
-  <link rel="stylesheet" href="style.css">
+  <title>Consultoria Online | Pedro Rollemberg</title>
+  <meta name="description" content="Consultoria Online com foco em treino personalizado. Acompanhamento profissional contínuo, ajustes estratégicos e plano pensado para sua rotina e objetivos.">
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Interações específicas desta página (sem mexer no style.css global) -->
+  <style>
+    .tap-card{
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease, background .18s ease, filter .18s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine){
+      .tap-card:hover{
+        transform: translateY(-3px);
+        outline-color: rgba(74,222,128,.22);
+        box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(74,222,128,.12);
+        filter: saturate(1.02);
+      }
+    }
+
+    .tap-card:active,
+    .tap-card.is-pressed{
+      transform: scale(.99);
+      outline-color: rgba(74,222,128,.35);
+      box-shadow: 0 14px 44px rgba(0,0,0,.50), 0 0 0 1px rgba(74,222,128,.18);
+    }
+
+    .tap-card:focus-visible{
+      outline: 2px solid rgba(34,211,238,.55);
+      outline-offset: 2px;
+    }
+
+    /* Só um refinamento visual no topo (mantém preto + verde, sem cinza) */
+    .clinic-body{ background:#000; min-height:100vh; }
+    .ambient-glow{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(900px 420px at 50% -8%, rgba(74,222,128,.18), transparent 60%),
+        radial-gradient(700px 380px at 85% 18%, rgba(74,222,128,.10), transparent 62%),
+        radial-gradient(720px 420px at 15% 30%, rgba(74,222,128,.08), transparent 65%);
+    }
+    .clinic-nav, .clinic-container{ position: relative; z-index: 2; }
+  </style>
 </head>
 
 <body class="clinic-body">
   <div class="ambient-glow"></div>
 
+  <!-- NAV -->
   <nav class="clinic-nav">
-    <a href="index.html" class="clinic-back-btn">
+    <a href="index.html" class="clinic-back-btn" aria-label="Voltar para a página inicial">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M19 12H5M12 19l-7-7 7-7"/>
       </svg>
@@ -23,118 +74,245 @@
     </a>
   </nav>
 
+  <!-- CONTAINER -->
   <main class="clinic-container">
+
+    <!-- HEADER -->
     <header class="clinic-header scroll-reveal">
-      <span class="tag-badge">Liberdade Geográfica</span>
-      <h1>Consultoria <br><span class="highlight-gradient">Online</span></h1>
+      <span class="tag-badge">Acompanhamento Profissional</span>
+
+      <h1>
+        <span class="highlight-gradient">Consultoria Online</span><br>
+        Treino personalizado com estratégia e constância
+      </h1>
+
       <p class="clinic-lead">
-        A metodologia Pedro Rollemberg na palma da sua mão.
-        Treine onde quiser, quando puder, com prescrição profissional via App.
+        A Consultoria Online é um acompanhamento profissional focado exclusivamente no treino, com treinos personalizados no aplicativo, ajustes contínuos, suporte e estratégia ao longo do processo.
       </p>
     </header>
 
-    <section class="clinic-section scroll-reveal">
-      <div class="glass-panel">
-        <div class="panel-icon">
+
+    <!-- O QUE É -->
+    <section class="clinic-section">
+      <div class="glass-panel scroll-reveal tap-card" tabindex="0" data-press>
+        <div class="panel-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
-            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-            <line x1="12" y1="18" x2="12.01" y2="18"/>
+            <path d="M4 7h16M4 12h16M4 17h16"/>
           </svg>
         </div>
-        <h2>Como Funciona a Tecnologia?</h2>
+
+        <h2>O que é a Consultoria Online</h2>
+
         <p>
-          Você recebe acesso ao nosso <strong>Aplicativo Exclusivo</strong>. Lá, seu treino estará detalhado
-          com vídeos demonstrativos, contagem de séries e cargas. Eu monitoro sua evolução à distância
-          e ajusto o plano mensalmente.
+          A Consultoria Online é um acompanhamento profissional focado exclusivamente no treino, onde você recebe treinos personalizados pelo aplicativo, com ajustes, suporte e estratégia contínua.
+        </p>
+
+        <p>
+          Aqui, você não recebe um treino genérico. Você recebe um plano pensado para sua realidade, rotina e objetivos.
         </p>
       </div>
     </section>
 
+
+    <!-- DIFERENCIAIS -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Vantagens do Digital</h2>
+      <h2 class="section-label scroll-reveal">Por que fazer parte do Time Pedro Rollemberg</h2>
+
       <div class="features-grid-pro">
-        <div class="feature-card-pro scroll-reveal delay-1">
-          <div class="f-icon">
+
+        <div class="feature-card-pro scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Autonomia Total</h3>
-          <p>Não dependa de horários fixos. Seu treino está disponível 24h para encaixar na sua rotina.</p>
+          <h3>Treino realmente personalizado</h3>
+          <p>Planejamento feito exclusivamente para você, com foco em eficiência, segurança e evolução consistente.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-2">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <rect x="5" y="2" width="14" height="20" rx="2"/>
+              <path d="M12 18h.01"/>
             </svg>
           </div>
-          <h3>Suporte WhatsApp</h3>
-          <p>Canal direto para tirar dúvidas sobre execução, envio de vídeos e ajustes de carga.</p>
+          <h3>Aplicativo simples e fácil de usar</h3>
+          <p>Treino organizado com visualização clara, facilitando execução, registro e constância.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-3">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="23 7 16 12 23 17 23 7"></polygon>
-              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
             </svg>
           </div>
-          <h3>Vídeos Didáticos</h3>
-          <p>Biblioteca completa de exercícios para garantir a execução correta e segura.</p>
+          <h3>Acompanhamento profissional contínuo</h3>
+          <p>Suporte e orientações para manter o método, a execução correta e a consistência do plano.</p>
         </div>
+
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <path d="M22 4L12 14l-3-3"/>
+            </svg>
+          </div>
+          <h3>Ajustes conforme sua evolução</h3>
+          <p>O treino é refinado conforme sua resposta, performance e necessidade ao longo do acompanhamento.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 12l9-5-9-5-9 5 9 5z"/>
+            </svg>
+          </div>
+          <h3>Segurança, método e constância</h3>
+          <p>Estrutura clara para você treinar com confiança e progredir com regularidade.</p>
+        </div>
+
       </div>
     </section>
 
+
+    <!-- COMO FUNCIONA -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Passo a Passo</h2>
+      <h2 class="section-label scroll-reveal">Como funciona a Consultoria Online</h2>
+
       <div class="tech-timeline">
-        <div class="tech-step scroll-reveal">
+
+        <div class="tech-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
           <div class="step-marker">01</div>
           <div class="step-body">
-            <h3>Anamnese Digital</h3>
-            <p>Você preenche um formulário detalhado sobre seus objetivos, histórico e saúde.</p>
+            <h3>Conhecemos você</h3>
+            <p>
+              Logo após a contratação, você responde uma anamnese completa via Google Forms, onde analisamos objetivos, rotina, histórico de saúde, limitações físicas e necessidades específicas.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
           <div class="step-marker">02</div>
           <div class="step-body">
-            <h3>Planejamento</h3>
-            <p>Eu estruturo sua periodização e monto o treino completo no sistema.</p>
+            <h3>Montagem do treino personalizado</h3>
+            <p>
+              Com base nas suas respostas, o treino é montado exclusivamente para você e entregue em um aplicativo de fácil visualização, com exercícios, séries, repetições e orientações claras.
+              Tudo é pensado para facilitar sua execução e manter a constância.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step highlight-step scroll-reveal">
-          <div class="step-marker pulse-marker">03</div>
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">03</div>
           <div class="step-body">
-            <h3>Acesso ao App</h3>
-            <p>Você recebe login e senha e já pode começar a treinar com direcionamento.</p>
+            <h3>Primeira semana de adaptação</h3>
+            <p>
+              Você inicia o treino e começa o processo de adaptação, entendendo o método, ajustando carga, ritmo e execução, e criando consistência.
+            </p>
           </div>
+        </div>
+
+        <div class="tech-step highlight-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="step-marker pulse-marker">04</div>
+          <div class="step-body">
+            <h3>Call de acompanhamento</h3>
+            <p>
+              Após a primeira semana completa de treino, realizamos uma call online para tirar dúvidas, ajustar o treino se necessário e alinhar expectativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="step-marker">05</div>
+          <div class="step-body">
+            <h3>Acompanhamento semanal via WhatsApp</h3>
+            <p>
+              Após a call, criamos um grupo no WhatsApp e o acompanhamento passa a ser semanal, com suporte, orientações e ajustes constantes.
+              Você nunca fica sem orientação.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">06</div>
+          <div class="step-body">
+            <h3>Segunda avaliação</h3>
+            <p>
+              A segunda avaliação acontece após dois meses da entrega do plano. Avaliamos evolução física e funcional, ajustamos o treino conforme seus resultados e refinamos a estratégia para continuidade.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PARA QUEM É -->
+    <section class="clinic-section">
+      <div class="target-card scroll-reveal tap-card" tabindex="0" data-press>
+        <h2>Para quem é a Consultoria Online</h2>
+
+        <div class="check-grid">
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem já está cansado de baixar treinos prontos da internet.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem treina, mas não vê resultado.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem tem rotina corrida e precisa de flexibilidade.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem quer melhorar saúde e qualidade de vida através do movimento.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem precisa treinar com segurança por conta de alguma patologia ou limitação.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem quer emagrecer de forma saudável, sem exageros e com orientação.</span></div>
         </div>
       </div>
     </section>
 
-    <footer class="clinic-footer scroll-reveal">
-      <p class="final-phrase">Treino de alta performance no seu bolso.</p>
-      <a href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20os%20detalhes%20para%20iniciar%20a%20Consultoria%20Online." class="cta-neon-button">
-        Contratar Online
+
+    <!-- CTA -->
+    <section class="clinic-footer scroll-reveal">
+      <p class="final-phrase">
+        Treino personalizado, acompanhamento e resultado.
+      </p>
+
+      <a
+        class="cta-neon-button"
+        href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20quero%20a%20Consultoria%20Online.%20Pode%20me%20explicar%20como%20funciona%20e%20os%20valores%3F"
+        target="_blank"
+        rel="noopener"
+      >
+        Quero minha Consultoria Online
       </a>
-    </footer>
+    </section>
 
     <footer class="main-footer">
-      <div class="footer-content">
-        <p class="copyright">&copy; 2026 Pedro Menezes Rollemberg. Todos os direitos reservados.</p>
-      </div>
+      <p>Pedro Rollemberg © Todos os direitos reservados</p>
     </footer>
+
   </main>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+  <!-- Scroll Reveal Script -->
+  <script>
+    const reveals = document.querySelectorAll('.scroll-reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
   </script>
+
+  <!-- Interação no toque -->
+  <script>
+    const pressables = document.querySelectorAll('[data-press]');
+
+    pressables.forEach(el => {
+      el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+      el.addEventListener('pointerup', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointercancel', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointerleave', () => el.classList.remove('is-pressed'));
+    });
+  </script>
+
 </body>
 </html>

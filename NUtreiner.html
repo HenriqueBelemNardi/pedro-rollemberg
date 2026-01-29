@@ -3,19 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NUtreiner | Pedro Rollemberg</title>
 
-  <link rel="stylesheet" href="style.css">
+  <title>NUtreiner | Pedro Rollemberg</title>
+  <meta name="description" content="NUtreiner: treino e nutrição integrados, com acompanhamento profissional e estratégia personalizada para resultados consistentes.">
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Interações específicas desta página (sem mexer no style.css global) -->
+  <style>
+    /* Torna blocos "clicáveis" e responsivos ao toque/mouse */
+    .tap-card{
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease, background .18s ease, filter .18s ease;
+    }
+
+    /* Efeito ao passar o mouse (desktop) */
+    @media (hover: hover) and (pointer: fine){
+      .tap-card:hover{
+        transform: translateY(-3px);
+        outline-color: rgba(74,222,128,.28);
+        box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(74,222,128,.12);
+        filter: saturate(1.02);
+      }
+    }
+
+    /* Efeito ao tocar/pressionar (mobile e desktop) */
+    .tap-card:active,
+    .tap-card.is-pressed{
+      transform: scale(.99);
+      outline-color: rgba(74,222,128,.35);
+      box-shadow: 0 14px 44px rgba(0,0,0,.50), 0 0 0 1px rgba(74,222,128,.18);
+    }
+
+    /* Um "focus" bonito para acessibilidade */
+    .tap-card:focus-visible{
+      outline: 2px solid rgba(34,211,238,.55);
+      outline-offset: 2px;
+    }
+
+    /* Ajuste fino: não deixar a linha do "Voltar" grudar no topo em telas pequenas */
+    @media (max-width: 520px){
+      .clinic-container{ padding-top: 22px; }
+    }
+  </style>
 </head>
 
 <body class="clinic-body">
   <div class="ambient-glow"></div>
 
+  <!-- NAV -->
   <nav class="clinic-nav">
-    <a href="index.html" class="clinic-back-btn">
+    <a href="index.html" class="clinic-back-btn" aria-label="Voltar para a página inicial">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M19 12H5M12 19l-7-7 7-7"/>
       </svg>
@@ -23,122 +69,235 @@
     </a>
   </nav>
 
+  <!-- CONTAINER -->
   <main class="clinic-container">
+
+    <!-- HEADER -->
     <header class="clinic-header scroll-reveal">
       <span class="tag-badge">Metodologia Exclusiva</span>
-      <h1>NUtreiner <br><span class="highlight-gradient">Método</span></h1>
+
+      <h1>
+        <span class="highlight-gradient">NUtreiner</span><br>
+        Método Integrado de Treino e Nutrição
+      </h1>
+
       <p class="clinic-lead">
-        A fusão definitiva entre treinamento físico e reeducação comportamental.
-        Não é apenas sobre o que você come, mas como você pensa e se comporta diante da rotina.
+        Um acompanhamento completo que integra treinamento físico personalizado e estratégia nutricional individualizada, com organização, constância e suporte profissional.
       </p>
     </header>
 
-    <section class="clinic-section scroll-reveal">
-      <div class="glass-panel">
-        <div class="panel-icon">
+    <!-- O QUE É -->
+    <section class="clinic-section">
+      <div class="glass-panel scroll-reveal tap-card" tabindex="0" data-press>
+        <div class="panel-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
             <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/>
             <path d="M12 6v6l4 2"/>
           </svg>
         </div>
-        <h2>O Pilar Fundamental</h2>
+
+        <h2>O que é o NUtreiner</h2>
+
         <p>
-          O NUtreiner não é uma dieta restritiva. É um processo pedagógico de <strong>autonomia</strong>.
-          Ensinamos você a dominar suas escolhas alimentares e alinhar sua rotina de treinos
-          com sua realidade mental e fisiológica, quebrando ciclos de autossabotagem.
+          O NUtreiner é um acompanhamento completo que une treino personalizado e estratégia nutricional individualizada, planejados em conjunto para gerar mais resultado, mais segurança e mais constância.
+        </p>
+
+        <p>
+          Aqui você não recebe um plano genérico. Você entra para um time de profissionais que acompanha sua evolução de perto e ajusta a estratégia conforme sua realidade e sua resposta.
         </p>
       </div>
     </section>
 
+    <!-- DIFERENCIAIS -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Pilares do Método</h2>
+      <h2 class="section-label scroll-reveal">Por que fazer parte do Time NUtreiner</h2>
+
       <div class="features-grid-pro">
-        <div class="feature-card-pro scroll-reveal delay-1">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Reeducação</h3>
-          <p>Aprenda a comer sem terrorismo nutricional. O conhecimento gera liberdade de escolha.</p>
+          <h3>Treino e nutrição integrados</h3>
+          <p>Uma única estratégia construída para seu objetivo, com coerência entre treino, rotina e alimentação.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-2">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
-              <line x1="9" y1="9" x2="9.01" y2="9"/>
-              <line x1="15" y1="9" x2="15.01" y2="9"/>
+              <path d="M12 20l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 12l9-5-9-5-9 5 9 5z"/>
             </svg>
           </div>
-          <h3>Mindset</h3>
-          <p>Trabalhamos os gatilhos mentais que sabotam seus resultados e a disciplina.</p>
+          <h3>Estratégia personalizada</h3>
+          <p>Planejamento pensado para sua realidade, respeitando limitações, rotina e disponibilidade.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-3">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="5" y="2" width="14" height="20" rx="2"/>
+              <path d="M12 18h.01"/>
+            </svg>
+          </div>
+          <h3>Aplicativos simples e práticos</h3>
+          <p>Treino e nutrição organizados em ferramentas fáceis de usar, com visualização clara.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+            </svg>
+          </div>
+          <h3>Acompanhamento próximo e humano</h3>
+          <p>Monitoramento contínuo com orientação, ajustes e suporte para manter a constância.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-              <polyline points="22 4 12 14.01 9 11.01"/>
+              <path d="M22 4L12 14l-3-3"/>
             </svg>
           </div>
-          <h3>Constância</h3>
-          <p>Estratégias para manter o foco a longo prazo, transformando a obrigação em estilo de vida.</p>
+          <h3>Suporte contínuo</h3>
+          <p>Dúvidas, correções e ajustes com acompanhamento real, sem deixar você sem direção.</p>
         </div>
       </div>
     </section>
 
+    <!-- COMO FUNCIONA -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Jornada do Aluno</h2>
+      <h2 class="section-label scroll-reveal">Como funciona o NUtreiner</h2>
+
       <div class="tech-timeline">
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
           <div class="step-marker">01</div>
           <div class="step-body">
-            <h3>Diagnóstico de Rotina</h3>
-            <p>Mapeamos seus horários, preferências alimentares, nível de estresse e histórico.</p>
+            <h3>Diagnóstico inicial</h3>
+            <p>
+              Após a contratação, você realiza uma anamnese completa. A partir disso, entendemos objetivos, rotina, histórico de saúde, limitações e necessidades específicas.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
           <div class="step-marker">02</div>
           <div class="step-body">
-            <h3>Planejamento Estratégico</h3>
-            <p>Definição de metas realistas de treino e nutrição que cabem no seu dia a dia.</p>
+            <h3>Montagem do treino e da estratégia nutricional</h3>
+            <p>
+              Com base no diagnóstico, organizamos o treino personalizado em aplicativo de fácil visualização e entregamos a estratégia nutricional em ferramenta simples e prática.
+              Tudo é pensado para facilitar sua rotina e aumentar a aderência.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step highlight-step scroll-reveal">
-          <div class="step-marker pulse-marker">03</div>
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">03</div>
           <div class="step-body">
-            <h3>Execução e Mentoria</h3>
-            <p>Acompanhamento próximo para ajustes finos na estratégia conforme sua resposta.</p>
+            <h3>Semana de adaptação</h3>
+            <p>
+              Você inicia o treino e a alimentação. Essa fase serve para compreender o método, estabelecer constância e realizar os primeiros ajustes no corpo e na rotina.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step highlight-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="step-marker pulse-marker">04</div>
+          <div class="step-body">
+            <h3>Call de acompanhamento</h3>
+            <p>
+              Após a primeira semana completa, realizamos uma call online para tirar dúvidas, ajustar o que for necessário e alinhar expectativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="step-marker">05</div>
+          <div class="step-body">
+            <h3>Acompanhamento semanal</h3>
+            <p>
+              Após a call, você entra em um canal direto de acompanhamento. O monitoramento passa a ser semanal com ajustes, orientações e suporte contínuo.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">06</div>
+          <div class="step-body">
+            <h3>Reavaliação</h3>
+            <p>
+              A segunda avaliação acontece aproximadamente dois meses após a entrega do plano. Analisamos sua evolução e ajustamos treino e nutrição quando necessário.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- PARA QUEM É -->
+    <section class="clinic-section">
+      <div class="target-card scroll-reveal tap-card" tabindex="0" data-press>
+        <h2>Para quem é o NUtreiner</h2>
+
+        <div class="check-grid">
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem está cansado de receber planos prontos e não ter resultado consistente.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem já tentou sozinho e precisa de estrutura para manter constância.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem busca mais saúde e qualidade de vida através do movimento e da alimentação.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem precisa melhorar marcadores de saúde e rotina por questões clínicas.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem deseja emagrecer com método, sem extremismos e com acompanhamento profissional.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Para quem quer um método que respeita sua realidade e entrega resultado de verdade.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
     <footer class="clinic-footer scroll-reveal">
-      <p class="final-phrase">Mude sua mente, transforme seu corpo.</p>
-      <a href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20funcionamento%20do%20NUtreiner%20." class="cta-neon-button">
-        Saiba Mais
+      <p class="final-phrase">
+        Treino, nutrição e acompanhamento integrados para resultados reais.
+      </p>
+
+      <a
+        class="cta-neon-button"
+        href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20quero%20iniciar%20o%20NUtreiner.%20Pode%20me%20explicar%20como%20funciona%20e%20os%20valores%3F"
+        target="_blank"
+        rel="noopener"
+      >
+        Quero começar a fazer parte do time NUtreiner
       </a>
     </footer>
 
     <footer class="main-footer">
-      <div class="footer-content">
-        <p class="copyright">&copy; 2026 Pedro Menezes Rollemberg. Todos os direitos reservados.</p>
-      </div>
+      <p>Pedro Rollemberg © Todos os direitos reservados</p>
     </footer>
+
   </main>
 
+  <!-- Scroll Reveal Script -->
   <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
+    const reveals = document.querySelectorAll('.scroll-reveal');
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
   </script>
+
+  <!-- Interação no toque: adiciona "pressed" de forma confiável -->
+  <script>
+    const pressables = document.querySelectorAll('[data-press]');
+
+    pressables.forEach(el => {
+      el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+      el.addEventListener('pointerup', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointercancel', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointerleave', () => el.classList.remove('is-pressed'));
+    });
+  </script>
+
 </body>
 </html>

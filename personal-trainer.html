@@ -3,19 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Trainer Presencial | Pedro Rollemberg</title>
 
-  <link rel="stylesheet" href="style.css">
+  <title>Personal Trainer Presencial | Pedro Rollemberg</title>
+  <meta name="description" content="Personal Trainer Presencial: treinamento individualizado, seguro e acompanhado de perto. Avaliação completa, prescrição personalizada e monitoramento contínuo.">
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Interações específicas desta página (sem mexer no style.css global) -->
+  <style>
+    .tap-card{
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease, background .18s ease, filter .18s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine){
+      .tap-card:hover{
+        transform: translateY(-3px);
+        outline-color: rgba(74,222,128,.22);
+        box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(74,222,128,.12);
+        filter: saturate(1.02);
+      }
+    }
+
+    .tap-card:active,
+    .tap-card.is-pressed{
+      transform: scale(.99);
+      outline-color: rgba(74,222,128,.35);
+      box-shadow: 0 14px 44px rgba(0,0,0,.50), 0 0 0 1px rgba(74,222,128,.18);
+    }
+
+    .tap-card:focus-visible{
+      outline: 2px solid rgba(34,211,238,.55);
+      outline-offset: 2px;
+    }
+
+    /* Fundo preto com glow verde suave (sem cinza) */
+    .clinic-body{ background:#000; min-height:100vh; }
+    .ambient-glow{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(900px 420px at 50% -8%, rgba(74,222,128,.18), transparent 60%),
+        radial-gradient(700px 380px at 85% 18%, rgba(74,222,128,.10), transparent 62%),
+        radial-gradient(720px 420px at 15% 30%, rgba(74,222,128,.08), transparent 65%);
+    }
+    .clinic-nav, .clinic-container{ position: relative; z-index: 2; }
+
+    /* Lista elegante para blocos longos */
+    .clean-list{
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+    .clean-list li{
+      list-style: none;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      outline: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.78);
+      line-height: 1.55;
+    }
+
+    /* Subtítulo do header (só tipografia) */
+    .header-subtitle{
+      margin: 10px auto 0;
+      max-width: 860px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.55;
+      font-size: 1.02rem;
+    }
+  </style>
 </head>
 
 <body class="clinic-body">
   <div class="ambient-glow"></div>
 
+  <!-- NAV -->
   <nav class="clinic-nav">
-    <a href="index.html" class="clinic-back-btn">
+    <a href="index.html" class="clinic-back-btn" aria-label="Voltar para a página inicial">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M19 12H5M12 19l-7-7 7-7"/>
       </svg>
@@ -23,169 +99,239 @@
     </a>
   </nav>
 
+  <!-- CONTAINER -->
   <main class="clinic-container">
+
+    <!-- HEADER -->
     <header class="clinic-header scroll-reveal">
-      <span class="tag-badge">Atendimento Premium</span>
-      <h1>Personal Trainer <br><span class="highlight-gradient">Presencial</span></h1>
-      <p class="clinic-lead">
+      <span class="tag-badge">Treinamento Presencial</span>
+
+      <h1>
+        <span class="highlight-gradient">Personal Trainer Presencial</span><br>
+        Treinamento individualizado, seguro e acompanhado de perto
+      </h1>
+
+      <p class="header-subtitle">
         Treinamento individualizado, seguro e acompanhado de perto.
-        Cada repetição monitorada com foco em sua avaliação física, histórico de saúde e evolução clínica.
       </p>
     </header>
 
-    <section class="clinic-section scroll-reveal">
-      <div class="glass-panel">
-        <div class="panel-icon">
+
+    <!-- O QUE É -->
+    <section class="clinic-section">
+      <div class="glass-panel scroll-reveal tap-card" tabindex="0" data-press>
+        <div class="panel-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            <path d="M6 19V5m12 14V5"/>
+            <path d="M8 7h8M8 17h8"/>
           </svg>
         </div>
 
-        <h2>O que é o Personal Trainer Presencial?</h2>
+        <h2>O que é o Personal Trainer Presencial</h2>
+
         <p>
-          O Personal Trainer Presencial é um acompanhamento <strong>100% individual</strong>, onde cada treino é pensado a partir da sua avaliação física,
-          histórico de saúde e objetivos, com foco em segurança, qualidade de vida e evolução constante.
+          O Personal Trainer Presencial é um acompanhamento 100% individual, onde cada treino é pensado a partir da sua avaliação física, histórico de saúde e objetivos, com foco em segurança, qualidade de vida e evolução constante.
         </p>
-        <p style="margin-top: 15px;">
-          Aqui, o treino é feito com você e para você, respeitando rigorosamente suas limitações fisiológicas e potencializando suas capacidades físicas.
+
+        <p>
+          Aqui, o treino é feito com você e para você, respeitando suas limitações e potencialidades.
         </p>
       </div>
     </section>
 
+
+    <!-- DIFERENCIAIS -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Por que treinar com o Time Pedro Rollemberg?</h2>
+      <h2 class="section-label scroll-reveal">Por que treinar com o Time Pedro Rollemberg</h2>
+
       <div class="features-grid-pro">
-        <div class="feature-card-pro scroll-reveal delay-1">
-          <div class="f-icon">
+
+        <div class="feature-card-pro scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+              <path d="M12 20l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 12l9-5-9-5-9 5 9 5z"/>
             </svg>
           </div>
-          <h3>Saúde, não só estética</h3>
-          <p>Foco prioritário na saúde funcional. A estética é consequência de um trabalho bem executado.</p>
+          <h3>Atendimento individualizado</h3>
+          <p>Treino realmente pensado para você, com atenção total em cada sessão.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-2">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <polyline points="14 2 14 8 20 8"/>
-              <line x1="16" y1="13" x2="8" y2="13"/>
-              <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <path d="M22 4L12 14l-3-3"/>
             </svg>
           </div>
-          <h3>Avaliação Completa</h3>
-          <p>Treinos prescritos exclusivamente com base em dados concretos da sua avaliação física.</p>
+          <h3>Foco em saúde, não só em estética</h3>
+          <p>Treinos estruturados para saúde, funcionalidade e qualidade de vida.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-3">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-              <circle cx="8.5" cy="7" r="4"/>
-              <line x1="20" y1="8" x2="20" y2="14"/>
-              <line x1="23" y1="11" x2="17" y2="11"/>
+              <path d="M4 19h16M4 15h16M4 11h16M4 7h16"/>
             </svg>
           </div>
-          <h3>Grupos Especiais</h3>
-          <p>Monitoramento contínuo para hipertensos, diabéticos e idosos com protocolos de segurança.</p>
+          <h3>Treinos baseados em avaliação física completa</h3>
+          <p>O treino parte de dados reais para direcionar o processo com segurança.</p>
         </div>
+
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Monitoramento contínuo para grupos especiais</h3>
+          <p>Mais atenção em casos como idosos e pessoas com condições clínicas.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+            </svg>
+          </div>
+          <h3>Segurança em cada sessão</h3>
+          <p>Orientação constante para execução, ritmo e progressão de forma segura.</p>
+        </div>
+
       </div>
     </section>
 
+
+    <!-- COMO FUNCIONA -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Como funciona (Passo a Passo)</h2>
+      <h2 class="section-label scroll-reveal">Como funciona o Personal Presencial</h2>
+
       <div class="tech-timeline">
-        <div class="tech-step scroll-reveal">
+
+        <div class="tech-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
           <div class="step-marker">01</div>
           <div class="step-body">
-            <h3>Conhecemos Você</h3>
-            <p>Entendemos seus objetivos, analisamos sua rotina e levamos em conta patologias, dores e limitações para definir prioridades.</p>
+            <h3>Conhecemos você</h3>
+            <p>
+              Antes de qualquer treino, entendemos seus objetivos, analisamos sua rotina, levamos em conta patologias, dores e limitações e definimos prioridades de forma segura.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
           <div class="step-marker">02</div>
           <div class="step-body">
-            <h3>Avaliação Física Inicial</h3>
-            <p>Composição corporal, dobras cutâneas, perimetria, mobilidade, flexibilidade e aptidão cardiorrespiratória.</p>
+            <h3>Avaliação física inicial completa</h3>
+            <p>
+              Realizamos uma avaliação detalhada, que inclui composição corporal, dobras cutâneas para aferição do percentual de gordura, análise da qualidade da massa magra, perimetria e testes físicos.
+            </p>
+
+            <ul class="clean-list">
+              <li>Testes físicos para avaliar mobilidade.</li>
+              <li>Testes físicos para avaliar flexibilidade.</li>
+              <li>Testes físicos para avaliar condicionamento cardiorrespiratório.</li>
+              <li>Testes físicos para avaliar nível geral de aptidão física.</li>
+            </ul>
+
+            <p style="margin-top:12px; color: rgba(255,255,255,.78); line-height:1.6;">
+              Essa avaliação direciona todo o processo.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
           <div class="step-marker">03</div>
           <div class="step-body">
-            <h3>Prescrição Personalizada</h3>
-            <p>Treino montado exclusivamente para você, focado em funcionalidade e desempenho, adaptado conforme sua resposta.</p>
+            <h3>Prescrição do treino personalizada</h3>
+            <p>
+              Com base na avaliação, o treino é montado exclusivamente para você, focado em melhorar saúde, funcionalidade e desempenho, e adaptado conforme sua evolução e resposta ao treinamento.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step highlight-step scroll-reveal">
+        <div class="tech-step highlight-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
           <div class="step-marker pulse-marker">04</div>
           <div class="step-body">
-            <h3>Monitoramento de Grupos Especiais</h3>
-            <p>Para idosos, hipertensos e diabéticos, o cuidado é redobrado com aferição de pressão arterial e monitoramento quando necessário.</p>
+            <h3>Monitoramento contínuo para grupos especiais</h3>
+            <p>
+              Para idosos, hipertensos, diabéticos e outros grupos especiais, o cuidado é redobrado. Tudo é feito para garantir segurança máxima durante as sessões.
+            </p>
+
+            <ul class="clean-list">
+              <li>Hipertensos: aferição da pressão arterial antes e após o treino.</li>
+              <li>Diabéticos: monitoramento do estado glicêmico e ajustes conforme resposta ao exercício.</li>
+            </ul>
           </div>
         </div>
+
       </div>
     </section>
 
-    <section class="clinic-section scroll-reveal">
-      <div class="target-card">
-        <h2>Para quem é este acompanhamento?</h2>
+
+    <!-- PARA QUEM É -->
+    <section class="clinic-section">
+      <div class="target-card scroll-reveal tap-card" tabindex="0" data-press>
+        <h2>Para quem é o Personal Trainer Presencial</h2>
+
         <div class="check-grid">
-          <div class="check-item-pro">
-            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>Não se sente seguro treinando sozinho</span>
-          </div>
-
-          <div class="check-item-pro">
-            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>Possui alguma patologia e precisa de atenção</span>
-          </div>
-
-          <div class="check-item-pro">
-            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>É idoso e quer treinar com segurança</span>
-          </div>
-
-          <div class="check-item-pro">
-            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span>Valoriza cuidado, método e atenção individual</span>
-          </div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que não se sente seguro treinando sozinho.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que possui alguma patologia e precisa de atenção constante.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que é idoso e quer treinar com segurança.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que quer melhorar saúde, mobilidade e qualidade de vida.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que quer emagrecer com acompanhamento próximo.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que valoriza cuidado, método e atenção individual.</span></div>
         </div>
       </div>
     </section>
 
-    <footer class="clinic-footer scroll-reveal">
-      <p class="final-phrase">Treinar com segurança muda tudo.</p>
-      <a href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20inicial%20para%20o%20Personal%20Trainer%20Presencial." class="cta-neon-button">
-        Agendar Avaliação
+
+    <!-- CTA -->
+    <section class="clinic-footer scroll-reveal">
+      <p class="final-phrase">
+        Treinar com segurança muda tudo.
+      </p>
+
+      <a
+        class="cta-neon-button"
+        href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20quero%20o%20Personal%20Trainer%20Presencial.%20Treinar%20com%20seguran%C3%A7a%20muda%20tudo.%20Pode%20me%20explicar%20como%20funciona%20e%20os%20valores%3F"
+        target="_blank"
+        rel="noopener"
+      >
+        Quero começar meu Personal Trainer Presencial
       </a>
-    </footer>
+    </section>
 
     <footer class="main-footer">
-      <div class="footer-content">
-        <p class="copyright">&copy; 2026 Pedro Menezes Rollemberg. Todos os direitos reservados.</p>
-      </div>
+      <p>Pedro Rollemberg © Todos os direitos reservados</p>
     </footer>
+
   </main>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+  <!-- Scroll Reveal Script -->
+  <script>
+    const reveals = document.querySelectorAll('.scroll-reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
   </script>
+
+  <!-- Interação no toque -->
+  <script>
+    const pressables = document.querySelectorAll('[data-press]');
+
+    pressables.forEach(el => {
+      el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+      el.addEventListener('pointerup', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointercancel', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointerleave', () => el.classList.remove('is-pressed'));
+    });
+  </script>
+
 </body>
 </html>

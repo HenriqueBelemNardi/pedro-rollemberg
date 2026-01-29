@@ -3,19 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Consultoria Presencial | Pedro Rollemberg</title>
 
-  <link rel="stylesheet" href="style.css">
+  <title>Consultoria Presencial | Pedro Rollemberg</title>
+  <meta name="description" content="Consultoria Presencial: treino online pelo aplicativo com avaliação física presencial em consultório. Estratégia baseada em dados reais, reavaliações periódicas e acompanhamento contínuo.">
+
+  <!-- Fonte -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Interações específicas desta página (sem mexer no style.css global) -->
+  <style>
+    .tap-card{
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+      transition: transform .18s ease, box-shadow .18s ease, outline-color .18s ease, background .18s ease, filter .18s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine){
+      .tap-card:hover{
+        transform: translateY(-3px);
+        outline-color: rgba(74,222,128,.22);
+        box-shadow: 0 18px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(74,222,128,.12);
+        filter: saturate(1.02);
+      }
+    }
+
+    .tap-card:active,
+    .tap-card.is-pressed{
+      transform: scale(.99);
+      outline-color: rgba(74,222,128,.35);
+      box-shadow: 0 14px 44px rgba(0,0,0,.50), 0 0 0 1px rgba(74,222,128,.18);
+    }
+
+    .tap-card:focus-visible{
+      outline: 2px solid rgba(34,211,238,.55);
+      outline-offset: 2px;
+    }
+
+    /* Fundo preto com glow verde suave (sem cinza) */
+    .clinic-body{ background:#000; min-height:100vh; }
+    .ambient-glow{
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(900px 420px at 50% -8%, rgba(74,222,128,.18), transparent 60%),
+        radial-gradient(700px 380px at 85% 18%, rgba(74,222,128,.10), transparent 62%),
+        radial-gradient(720px 420px at 15% 30%, rgba(74,222,128,.08), transparent 65%);
+    }
+    .clinic-nav, .clinic-container{ position: relative; z-index: 2; }
+
+    /* Lista elegante para blocos longos */
+    .clean-list{
+      margin-top: 10px;
+      display: grid;
+      gap: 10px;
+    }
+    .clean-list li{
+      list-style: none;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.03);
+      outline: 1px solid rgba(255,255,255,.06);
+      color: rgba(255,255,255,.78);
+      line-height: 1.55;
+    }
+
+    /* Subtítulo do header */
+    .header-subtitle{
+      margin: 10px auto 0;
+      max-width: 860px;
+      color: rgba(255,255,255,.75);
+      line-height: 1.55;
+      font-size: 1.02rem;
+    }
+  </style>
 </head>
 
 <body class="clinic-body">
   <div class="ambient-glow"></div>
 
+  <!-- NAV -->
   <nav class="clinic-nav">
-    <a href="index.html" class="clinic-back-btn">
+    <a href="index.html" class="clinic-back-btn" aria-label="Voltar para a página inicial">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M19 12H5M12 19l-7-7 7-7"/>
       </svg>
@@ -23,122 +99,253 @@
     </a>
   </nav>
 
+  <!-- CONTAINER -->
   <main class="clinic-container">
+
+    <!-- HEADER -->
     <header class="clinic-header scroll-reveal">
-      <span class="tag-badge">Acompanhamento Híbrido</span>
-      <h1>Consultoria <br><span class="highlight-gradient">Presencial</span></h1>
-      <p class="clinic-lead">
-        O equilíbrio ideal entre autonomia e supervisão técnica.
-        Encontros periódicos para avaliações físicas rigorosas e ajustes de treino.
+      <span class="tag-badge">Treino online + avaliação presencial</span>
+
+      <h1>
+        <span class="highlight-gradient">Consultoria Presencial</span><br>
+        Treino online + avaliação física presencial
+      </h1>
+
+      <p class="header-subtitle">
+        A flexibilidade da consultoria online com a precisão de uma avaliação física presencial, realizada em consultório.
       </p>
     </header>
 
-    <section class="clinic-section scroll-reveal">
-      <div class="glass-panel">
-        <div class="panel-icon">
+
+    <!-- O QUE É -->
+    <section class="clinic-section">
+      <div class="glass-panel scroll-reveal tap-card" tabindex="0" data-press>
+        <div class="panel-icon" aria-hidden="true">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
-            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
-            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
-            <path d="M9 14l2 2 4-4"/>
+            <path d="M4 19h16M4 7h16M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+            <path d="M9 12h6M9 15h6"/>
           </svg>
         </div>
-        <h2>Diferença do Personal</h2>
+
+        <h2>O que é a Consultoria Presencial</h2>
+
         <p>
-          Diferente do Personal Trainer (que está todo dia), na Consultoria Presencial nos encontramos em <strong>datas agendadas</strong>.
-          O foco é realizar a avaliação física completa, corrigir movimentos complexos e entregar sua nova planilha.
+          A Consultoria Presencial é um acompanhamento que une a flexibilidade da consultoria online com a precisão de uma avaliação física presencial, realizada em consultório.
+        </p>
+
+        <p>
+          Você treina pelo aplicativo, mas sua estratégia é baseada em dados reais, medidos presencialmente.
         </p>
       </div>
     </section>
 
+
+    <!-- DIFERENCIAIS -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">O que está incluso?</h2>
+      <h2 class="section-label scroll-reveal">Por que fazer parte do Time Pedro Rollemberg</h2>
+
       <div class="features-grid-pro">
-        <div class="feature-card-pro scroll-reveal delay-1">
-          <div class="f-icon">
+
+        <div class="feature-card-pro scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M4 19h16M4 7h16M7 7V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"/>
+            </svg>
+          </div>
+          <h3>Avaliação física presencial em consultório</h3>
+          <p>Dados medidos presencialmente para direcionar a estratégia com precisão.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
             </svg>
           </div>
-          <h3>Avaliação Premium</h3>
-          <p>Dobras cutâneas, perimetria e análise postural completa a cada encontro.</p>
+          <h3>Treino personalizado com base em dados reais</h3>
+          <p>Prescrição estruturada a partir de avaliação e necessidades específicas.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-2">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="8" x2="12" y2="12"/>
-              <line x1="12" y1="16" x2="12.01" y2="16"/>
+              <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
             </svg>
           </div>
-          <h3>Correção Técnica</h3>
-          <p>Ajuste biomecânico dos exercícios principais para otimizar resultados e evitar lesões.</p>
+          <h3>Acompanhamento profissional contínuo</h3>
+          <p>Suporte, orientação e ajustes para manter consistência e evolução.</p>
         </div>
 
-        <div class="feature-card-pro scroll-reveal delay-3">
-          <div class="f-icon">
+        <div class="feature-card-pro scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-              <line x1="16" y1="2" x2="16" y2="6"/>
-              <line x1="8" y1="2" x2="8" y2="6"/>
-              <line x1="3" y1="10" x2="21" y2="10"/>
+              <path d="M12 20l9-5-9-5-9 5 9 5z"/>
+              <path d="M12 12l9-5-9-5-9 5 9 5z"/>
             </svg>
           </div>
-          <h3>Renovação Mensal</h3>
-          <p>Periodização nova a cada ciclo, baseada estritamente nos resultados da avaliação.</p>
+          <h3>Reavaliações periódicas</h3>
+          <p>Reavaliações presenciais para medir evolução e ajustar o plano.</p>
         </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="f-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>Segurança, método e clareza na evolução</h3>
+          <p>Processo estruturado com direcionamento e controle profissional.</p>
+        </div>
+
       </div>
     </section>
 
+
+    <!-- COMO FUNCIONA -->
     <section class="clinic-section">
-      <h2 class="section-label scroll-reveal">Fluxo de Atendimento</h2>
+      <h2 class="section-label scroll-reveal">Como funciona a Consultoria Presencial</h2>
+
       <div class="tech-timeline">
-        <div class="tech-step scroll-reveal">
+
+        <div class="tech-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
           <div class="step-marker">01</div>
           <div class="step-body">
-            <h3>Agendamento</h3>
-            <p>Marcamos nosso encontro presencial na academia ou local combinado para a avaliação.</p>
+            <h3>Conhecemos você</h3>
+            <p>
+              Antes de iniciar o treino, entendemos seus objetivos, analisamos sua rotina, consideramos patologias, dores e limitações e definimos a melhor estratégia de forma segura.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step scroll-reveal">
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
           <div class="step-marker">02</div>
           <div class="step-body">
-            <h3>O Encontro (Check-up)</h3>
-            <p>Realizamos a avaliação física completa e um treino técnico para ajustes.</p>
+            <h3>Avaliação física presencial em consultório</h3>
+            <p>
+              A avaliação é feita presencialmente, em consultório, incluindo análise da composição corporal, avaliação funcional, identificação de necessidades específicas e definição de pontos de melhoria.
+            </p>
+
+            <ul class="clean-list">
+              <li>Análise da composição corporal.</li>
+              <li>Avaliação funcional.</li>
+              <li>Identificação de necessidades específicas.</li>
+              <li>Definição de pontos de melhoria (mobilidade, força, condicionamento).</li>
+            </ul>
+
+            <p style="margin-top:12px; color: rgba(255,255,255,.78); line-height:1.6;">
+              Essa avaliação direciona toda a prescrição do treino.
+            </p>
           </div>
         </div>
 
-        <div class="tech-step highlight-step scroll-reveal">
-          <div class="step-marker pulse-marker">03</div>
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">03</div>
           <div class="step-body">
-            <h3>Entrega do Plano</h3>
-            <p>Você recebe seu treino atualizado via App/PDF para seguir sozinho até a próxima.</p>
+            <h3>Montagem do treino personalizado</h3>
+            <p>
+              Com base na avaliação presencial, o treino é montado exclusivamente para você e entregue em aplicativo de fácil visualização, com exercícios, orientações e progressões claras.
+            </p>
           </div>
+        </div>
+
+        <div class="tech-step highlight-step scroll-reveal delay-1 tap-card" tabindex="0" data-press>
+          <div class="step-marker pulse-marker">04</div>
+          <div class="step-body">
+            <h3>Call de acompanhamento</h3>
+            <p>
+              Após a primeira semana completa de treino, realizamos uma call online para tirar dúvidas, ajustar o treino se necessário e alinhar expectativas.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-2 tap-card" tabindex="0" data-press>
+          <div class="step-marker">05</div>
+          <div class="step-body">
+            <h3>Acompanhamento semanal via WhatsApp</h3>
+            <p>
+              Após a call, criamos um grupo no WhatsApp e o acompanhamento passa a ser semanal, com suporte, orientações e ajustes constantes.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal delay-3 tap-card" tabindex="0" data-press>
+          <div class="step-marker">06</div>
+          <div class="step-body">
+            <h3>Reavaliações periódicas</h3>
+            <p>
+              As reavaliações acontecem a cada dois meses, de forma presencial, para analisar evolução, ajustar o treino e manter a progressão.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- PARA QUEM É -->
+    <section class="clinic-section">
+      <div class="target-card scroll-reveal tap-card" tabindex="0" data-press>
+        <h2>Para quem é a Consultoria Presencial</h2>
+
+        <div class="check-grid">
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que não quer avaliações genéricas por formulário.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que valoriza dados reais e acompanhamento presencial.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que quer melhorar saúde e qualidade de vida com segurança.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que possui alguma patologia e precisa de controle profissional.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que quer emagrecer de forma saudável e sustentável.</span></div>
+          <div class="check-item-pro tap-card" tabindex="0" data-press><span>Esse acompanhamento é para você que busca um método estruturado e acompanhamento contínuo.</span></div>
         </div>
       </div>
     </section>
 
-    <footer class="clinic-footer scroll-reveal">
-      <p class="final-phrase">Garanta a técnica certa para evoluir.</p>
-      <a href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20tenho%20interesse%20em%20agendar%20um%20encontro%20para%20a%20Consultoria%20Presencial." class="cta-neon-button">
-        Agendar Encontro
+
+    <!-- CTA -->
+    <section class="clinic-footer scroll-reveal">
+      <p class="final-phrase">
+        Treinar com estratégia faz toda a diferença.
+      </p>
+
+      <a
+        class="cta-neon-button"
+        href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20quero%20a%20Consultoria%20Presencial.%20Treinar%20com%20estrat%C3%A9gia%20faz%20toda%20a%20diferen%C3%A7a.%20Pode%20me%20explicar%20como%20funciona%20e%20os%20valores%3F"
+        target="_blank"
+        rel="noopener"
+      >
+        Quero começar minha Consultoria Presencial
       </a>
-    </footer>
+    </section>
 
     <footer class="main-footer">
-      <div class="footer-content">
-        <p class="copyright">&copy; 2026 Pedro Menezes Rollemberg. Todos os direitos reservados.</p>
-      </div>
+      <p>Pedro Rollemberg © Todos os direitos reservados</p>
     </footer>
+
   </main>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+  <!-- Scroll Reveal Script -->
+  <script>
+    const reveals = document.querySelectorAll('.scroll-reveal');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
   </script>
+
+  <!-- Interação no toque -->
+  <script>
+    const pressables = document.querySelectorAll('[data-press]');
+
+    pressables.forEach(el => {
+      el.addEventListener('pointerdown', () => el.classList.add('is-pressed'));
+      el.addEventListener('pointerup', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointercancel', () => el.classList.remove('is-pressed'));
+      el.addEventListener('pointerleave', () => el.classList.remove('is-pressed'));
+    });
+  </script>
+
 </body>
 </html>

@@ -28,6 +28,7 @@ body{
   overflow-x:hidden;
 }
 
+
 img{ display:block; max-width:100%; }
 a{ color:inherit; text-decoration:none; }
 
@@ -67,7 +68,16 @@ a{ color:inherit; text-decoration:none; }
   display:flex;
   flex-direction:column;
   align-items:center;
+
+  position: relative;
+  z-index: 2;
+  
 }
+.landing-body{
+  position: relative;
+}
+
+
 
 .logo-area{
   width:100%;
@@ -192,26 +202,60 @@ a{ color:inherit; text-decoration:none; }
 
 .product-card.pressed{ transform: scale(.99); }
 
+.product-card::before,
 .card-overlay{
+  content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,.85), rgba(0,0,0,.2));
+
+  /* BEM mais claro (imagem aparece e texto lê melhor) */
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.18) 55%,
+    rgba(0,0,0,0.28) 100%
+  );
+
+  border-radius: inherit;
+  transition: background .3s ease, opacity .3s ease;
 }
 
+.product-card:hover::before{
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.02) 0%,
+    rgba(0,0,0,0.12) 55%,
+    rgba(0,0,0,0.22) 100%
+  );
+}
+
+
+
+
+/* Texto do card mais legível (principalmente as frases pequenas) */
 .card-info{
-  position:absolute;
-  bottom:14px;
-  left:14px;
-  right:14px;
+  z-index:2;
 }
+
 .card-info h2{
-  font-size:1.15rem;
-  font-weight:700;
+  color:#fff;
+  text-shadow: 0 6px 22px rgba(0,0,0,.55);
 }
+
+.card-info p,
+.card-info small,
+.card-info .card-subtitle{
+  color: rgba(255,255,255,.90);
+  text-shadow: 0 6px 18px rgba(0,0,0,.55);
+  font-size: .92rem;
+  line-height: 1.35;
+}
+
 .card-info span{
-  position: relative;
-  width: fit-content;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 6px 18px rgba(0,0,0,.55);
 }
+
 .card-info span::after{
   content:"";
   position:absolute;
@@ -238,16 +282,32 @@ a{ color:inherit; text-decoration:none; }
 /* ================= PÁGINAS INTERNAS (NUtreiner / consultorias / personal) ================= */
 
 .clinic-body{
-  background: radial-gradient(circle at top, #111, #000);
+  background: #000; /* preto absoluto */
+  min-height: 100vh;
 }
+
+
 
 /* Glow de fundo */
 .ambient-glow{
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at top, rgba(74,222,128,0.18), transparent 60%);
   pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(900px 420px at 50% -8%, rgba(74,222,128,.18), transparent 60%),
+    radial-gradient(700px 380px at 85% 18%, rgba(59, 177, 102, 0.1), transparent 62%),
+    radial-gradient(720px 420px at 15% 30%, rgba(74,222,128,.08), transparent 65%);
 }
+
+.clinic-container,
+.clinic-nav{
+  position: relative;
+  z-index: 2;
+}
+
+
 
 /* Nav */
 .clinic-nav{
@@ -322,11 +382,13 @@ a{ color:inherit; text-decoration:none; }
 }
 
 .section-label{
-  font-size: 1.05rem;
-  opacity: .86;
+  font-size: 1.15rem;
+  font-weight: 700;
+  opacity: .92;
   margin-bottom: 18px;
   letter-spacing: .2px;
 }
+
 
 /* Glass panel */
 .glass-panel{
@@ -411,52 +473,92 @@ a{ color:inherit; text-decoration:none; }
 .tech-step{
   display:flex;
   gap: 16px;
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(255,255,255,.03);
+  padding: 18px 18px;
+  border-radius: 22px;
+
+  background: rgba(255,255,255,.035);
   outline: 1px solid rgba(255,255,255,.06);
+
+  box-shadow: 0 12px 38px rgba(0,0,0,.55);
+  transition: transform .18s ease, outline-color .18s ease, background .18s ease;
+
+  position: relative;   /* <- necessário pro efeito */
+  overflow: hidden;     /* <- necessário pro efeito */
 }
 
+
+@media (hover:hover) and (pointer:fine){
+  .tech-step:hover{
+    transform: translateY(-3px);
+    outline-color: rgba(74,222,128,.20);
+    background: rgba(255,255,255,.045);
+  }
+}
+
+.tech-step::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(74,222,128,0),
+    rgba(74,222,128,.28),
+    rgba(74,222,128,0)
+  );
+  opacity: .55;
+}
+
+
 .step-marker{
-  min-width: 52px;
-  height: 52px;
+  min-width: 54px;
+  height: 54px;
   border-radius: 18px;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-weight: 800;
-  color: var(--green);
-  background: rgba(74,222,128,.10);
-  outline: 1px solid rgba(74,222,128,.20);
+  letter-spacing: .5px;
+  color: rgba(255,255,255,.92);
+
+  background: linear-gradient(180deg, rgba(74,222,128,.20), rgba(74,222,128,.06));
+  outline: 1px solid rgba(74,222,128,.22);
+  box-shadow: 0 10px 26px rgba(74,222,128,.08);
 }
 
 .step-body h3{
-  font-size: 1.05rem;
+  font-size: 1.08rem;
   margin-bottom: 6px;
-}
-.step-body p{
-  color: rgba(255,255,255,.76);
-  line-height: 1.55;
+  color: rgba(255,255,255,.95);
 }
 
-.highlight-step{
-  outline: 1px solid rgba(74,222,128,.20);
-  background: linear-gradient(180deg, rgba(74,222,128,.06), rgba(255,255,255,.02));
+.step-body p{
+  color: rgba(255,255,255,.74);
+  line-height: 1.6;
 }
+
+
+.highlight-step{
+  background:
+    radial-gradient(circle at 12% 40%, rgba(74,222,128,.10), transparent 55%),
+    rgba(255,255,255,.04);
+  outline: 1px solid rgba(74,222,128,.25);
+}
+
 
 /* Pulse marker (classe usada no HTML) */
 .pulse-marker{
   position: relative;
 }
 .pulse-marker::after{
-  content:"";
-  position:absolute;
-  inset: -6px;
-  border-radius: 22px;
-  border: 2px solid rgba(74,222,128,.35);
-  opacity: 0;
-  animation: pulse 1.6s ease-out infinite;
+  border: 2px solid rgba(74,222,128,.22);
+  animation: pulse 2.1s ease-out infinite;
 }
+
 @keyframes pulse{
   0%{ transform: scale(.85); opacity: 0; }
   20%{ opacity: .55; }
@@ -546,15 +648,21 @@ a{ color:inherit; text-decoration:none; }
   .tech-step{ flex-direction: row; }
 }
 
-/* Glow sutil no topo do index */
+/* Glow MAIS CLARO no topo do index (sem deixar cinza) */
 .landing-body::before{
   content:"";
   position: fixed;
   inset: 0;
   pointer-events:none;
+  z-index: 0;
+
   background:
-    radial-gradient(circle at 50% 0%, rgba(74,222,128,.14), transparent 55%),
-    radial-gradient(circle at 80% 10%, rgba(34,211,238,.10), transparent 45%);
+    radial-gradient(1100px 520px at 50% -8%, rgba(74,222,128,.32), transparent 62%),
+    radial-gradient(900px 520px at 82% 10%, rgba(34,211,238,.16), transparent 60%),
+    radial-gradient(900px 520px at 18% 16%, rgba(74,222,128,.18), transparent 62%);
 }
+
+
+
 
 
