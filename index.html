@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Rollemberg - Personal Trainer</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="landing-body">
+ <main class="content-wrapper">
+
+  <header class="logo-area">
+    <h1>Pedro Rollemberg</h1>
+    <p>Selecione uma categoria para saber mais</p>
+  </header>
+
+  <div class="foto-pedro-index">
+    <img src="image/FOTO_PEDRO.png" alt="Pedro Rollemberg">
+  </div>
+
+  <div class="scroll-arrow">
+    <span></span>
+  </div>
+
+  <section class="products-grid" id="servicos">
+
+
+      <a href="NUtreiner.html" class="product-card nutreiner">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+        </div>
+      </a>
+
+      <a href="consultoria-online.html" class="product-card consultoria-online">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+        </div>
+      </a>
+
+      <a href="personal-trainer.html" class="product-card personal-trainer">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+        </div>
+      </a>
+
+      <a href="consultoria-presencial.html" class="product-card consultoria-presencial">
+        <div class="card-overlay"></div>
+        <div class="card-info">
+        </div>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    document.querySelectorAll('.product-card').forEach(card => {
+      card.addEventListener('pointerdown', () => card.classList.add('pressed'));
+      card.addEventListener('pointerup', () => card.classList.remove('pressed'));
+      card.addEventListener('pointerleave', () => card.classList.remove('pressed'));
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultoria Online | Pedro Rollemberg</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="clinic-body">
+  <div class="ambient-glow"></div>
+
+  <nav class="clinic-nav">
+    <a href="index.html" class="clinic-back-btn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+      Voltar
+    </a>
+  </nav>
+
+  <main class="clinic-container">
+    <header class="clinic-header scroll-reveal">
+      <span class="tag-badge">Liberdade Geográfica</span>
+      <h1>Consultoria <br><span class="highlight-gradient">Online</span></h1>
+      <p class="clinic-lead">
+        A metodologia Pedro Rollemberg na palma da sua mão.
+        Treine onde quiser, quando puder, com prescrição profissional via App.
+      </p>
+    </header>
+
+    <section class="clinic-section scroll-reveal">
+      <div class="glass-panel">
+        <div class="panel-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="1.5">
+            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+            <line x1="12" y1="18" x2="12.01" y2="18"/>
+          </svg>
+        </div>
+        <h2>Como Funciona a Tecnologia?</h2>
+        <p>
+          Você recebe acesso ao nosso <strong>Aplicativo Exclusivo</strong>. Lá, seu treino estará detalhado
+          com vídeos demonstrativos, contagem de séries e cargas. Eu monitoro sua evolução à distância
+          e ajusto o plano mensalmente.
+        </p>
+      </div>
+    </section>
+
+    <section class="clinic-section">
+      <h2 class="section-label scroll-reveal">Vantagens do Digital</h2>
+      <div class="features-grid-pro">
+        <div class="feature-card-pro scroll-reveal delay-1">
+          <div class="f-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <h3>Autonomia Total</h3>
+          <p>Não dependa de horários fixos. Seu treino está disponível 24h para encaixar na sua rotina.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-2">
+          <div class="f-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3>Suporte WhatsApp</h3>
+          <p>Canal direto para tirar dúvidas sobre execução, envio de vídeos e ajustes de carga.</p>
+        </div>
+
+        <div class="feature-card-pro scroll-reveal delay-3">
+          <div class="f-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="23 7 16 12 23 17 23 7"></polygon>
+              <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+            </svg>
+          </div>
+          <h3>Vídeos Didáticos</h3>
+          <p>Biblioteca completa de exercícios para garantir a execução correta e segura.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="clinic-section">
+      <h2 class="section-label scroll-reveal">Passo a Passo</h2>
+      <div class="tech-timeline">
+        <div class="tech-step scroll-reveal">
+          <div class="step-marker">01</div>
+          <div class="step-body">
+            <h3>Anamnese Digital</h3>
+            <p>Você preenche um formulário detalhado sobre seus objetivos, histórico e saúde.</p>
+          </div>
+        </div>
+
+        <div class="tech-step scroll-reveal">
+          <div class="step-marker">02</div>
+          <div class="step-body">
+            <h3>Planejamento</h3>
+            <p>Eu estruturo sua periodização e monto o treino completo no sistema.</p>
+          </div>
+        </div>
+
+        <div class="tech-step highlight-step scroll-reveal">
+          <div class="step-marker pulse-marker">03</div>
+          <div class="step-body">
+            <h3>Acesso ao App</h3>
+            <p>Você recebe login e senha e já pode começar a treinar com direcionamento.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="clinic-footer scroll-reveal">
+      <p class="final-phrase">Treino de alta performance no seu bolso.</p>
+      <a href="https://wa.me/557996410039?text=Ol%C3%A1%2C%20Pedro.%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20os%20detalhes%20para%20iniciar%20a%20Consultoria%20Online." class="cta-neon-button">
+        Contratar Online
+      </a>
+    </footer>
+
+    <footer class="main-footer">
+      <div class="footer-content">
+        <p class="copyright">&copy; 2026 Pedro Menezes Rollemberg. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.scroll-reveal').forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
