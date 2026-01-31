@@ -702,3 +702,108 @@ a{ color:inherit; text-decoration:none; }
 
 
 
+/* ================= FLOAT WHATSAPP ================= */
+.wa-float{
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 9999;
+
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+
+  display: grid;
+  place-items: center;
+
+  background: linear-gradient(90deg, var(--green), var(--cyan));
+  color: #000;
+
+  box-shadow: 0 14px 44px rgba(0,0,0,.55), 0 0 0 1px rgba(74,222,128,.18);
+  transform: translateY(16px);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform .22s ease, opacity .22s ease, filter .22s ease;
+}
+
+.wa-float.show{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.wa-float:hover{
+  filter: brightness(1.02);
+  transform: translateY(-2px);
+}
+
+.wa-float svg{
+  width: 26px;
+  height: 26px;
+  fill: #000;
+}
+
+/* Mobile: afasta um pouco do safe area */
+@media (max-width: 759px){
+  .wa-float{ display:none !important; }
+}
+
+
+/* ================= ACCORDION (TIMELINE) ================= */
+.tech-step{
+  cursor: pointer;
+}
+
+.tech-step[aria-expanded="false"] .step-details{
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-4px);
+  margin-top: 0;
+}
+
+.tech-step[aria-expanded="true"] .step-details{
+  max-height: 520px; /* grande o suficiente pra seus textos */
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 8px;
+}
+
+.step-details{
+  overflow: hidden;
+  transition: max-height .25s ease, opacity .22s ease, transform .22s ease, margin .22s ease;
+}
+
+/* “setinha” discreta do accordion */
+.tech-step .step-body h3{
+  position: relative;
+  padding-right: 22px;
+}
+
+/* Setinha do accordion: SOMENTE DESKTOP */
+@media (hover:hover) and (pointer:fine) and (min-width: 760px){
+  .tech-step .step-body h3{
+    position: relative;
+    padding-right: 22px;
+  }
+
+  .tech-step .step-body h3::after{
+    content:"";
+    position:absolute;
+    right: 2px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(255,255,255,.55);
+    border-bottom: 2px solid rgba(255,255,255,.55);
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform .2s ease, opacity .2s ease;
+    opacity: .75;
+  }
+
+  .tech-step[aria-expanded="true"] .step-body h3::after{
+    transform: translateY(-35%) rotate(-135deg);
+    opacity: .9;
+  }
+}
+
