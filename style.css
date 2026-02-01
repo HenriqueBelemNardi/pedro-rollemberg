@@ -273,10 +273,10 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Backgrounds (confere nomes/case dos arquivos) */
-.nutreiner{ background-image:url("./image/Fundo\ NUtreiner.png"); }
-.consultoria-online{ background-image:url("./image/Consultoria\ Online.png"); }
-.personal-trainer{ background-image:url("./image/Personal\ trainer.png"); }
-.consultoria-presencial{ background-image:url("./image/Consultoria-Presencial.png"); }
+.nutreiner{ background-image:url("./image/NUTRAINER.png"); }
+.consultoria-online{ background-image:url("./image/CONSULTORIA\ ON.png"); }
+.personal-trainer{ background-image:url("./image/Personal\ Trainer.png"); }
+.consultoria-presencial{ background-image:url("./image/Consultoria\ presencial.png"); }
 
 
 /* ================= PÁGINAS INTERNAS (NUtreiner / consultorias / personal) ================= */
