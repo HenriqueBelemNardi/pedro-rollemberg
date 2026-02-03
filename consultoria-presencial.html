@@ -86,6 +86,7 @@
   </style>
 </head>
   <script src="script.js" defer></script>
+  
 
 <body class="clinic-body">
   <div class="ambient-glow"></div>
@@ -364,6 +365,39 @@
       el.addEventListener('pointerleave', () => el.classList.remove('is-pressed'));
     });
   </script>
+    <!-- Botão voltar ao topo -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 6l-7 7 1.4 1.4L12 8.8l5.6 5.6L19 13z"/>
+    </svg>
+  </button>
+
+  <script>
+    (function(){
+      const btn = document.getElementById('backToTop');
+      if(!btn) return;
+
+      const toggle = () => {
+        const doc = document.documentElement;
+        const scrollable = doc.scrollHeight - doc.clientHeight;
+        if(scrollable <= 0) return;
+
+        const progress = (window.scrollY || doc.scrollTop) / scrollable;
+        btn.classList.toggle('show', progress > 0.35);
+      };
+
+      window.addEventListener('scroll', toggle, { passive:true });
+      toggle();
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
