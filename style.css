@@ -156,6 +156,15 @@ a{ color:inherit; text-decoration:none; }
 }
 
 /* Grid dos cards */
+/* Desktop: quando tiver 3 cards, o último ocupa as 2 colunas */
+@media (min-width: 760px){
+  .products-grid > .product-card:last-child{
+    grid-column: 1 / -1;
+    max-width: 720px;
+    justify-self: center;
+  }
+}
+
 .products-grid{
   width:100%;
   display:grid;
